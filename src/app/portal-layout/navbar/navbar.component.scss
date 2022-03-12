@@ -1,0 +1,88 @@
+@import "../../../styles";
+
+.wrapper {
+  margin: 0;
+  padding: 0;
+  height: 70px;
+  background: $dark-navbar-color;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sectors {
+  height: 100%;
+}
+
+.logo-container {
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+}
+
+.main-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 600px;
+}
+
+.main-button {
+  width: 150px;
+  height: 40px;
+  border: 2px solid $dark-light-color;
+  background: none;
+  color: $dark-light-color;
+  font-size: 16px;
+}
+
+.button-navigation-container {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 15px;
+}
+
+.button-navigation {
+  background: none;
+  border: none;
+}
+
+.nav-logo {
+  height: 30px;
+}
+
+.logo, .nav-logo {
+  filter: $dark-light-pictures;
+}
+
+.user-name {
+  font-size: 18px;
+  color: $dark-light-color;
+}
+
+.button-navigation, .user-name {
+  margin-left: 10px;
+}
+
+.photo {
+  border-radius: 100%;
+  border: 2px solid $dark-dark-color;
+}
+
+.main-button, .nav-logo {
+  cursor: pointer;
+}
+
+.main-button:hover {
+  background: $dark-light-color;
+  color: $dark-dark-color;
+}
