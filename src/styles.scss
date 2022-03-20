@@ -14,3 +14,12 @@ $dark-dark-color: black;
 $dark-navbar-color: #464646;
 $dark-table-color: #5C5C5C;
 $dark-main-color: #2F2F2F;
+
+mat-dialog-container {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: $dark-light-color !important;
+  height: 150px !important;
+  width: 400px !important;
+  border-radius: 20px !important;
+}
+
