@@ -16,4 +16,7 @@ export class TransferService {
     return this.httpService.get<Transfer[]>(this._transferPath);
   }
 
+  deleteTransfer(id: any): Observable<any> {
+    return this.httpService.delete(`${this._transferPath}/${id}`);
+  }
 }
