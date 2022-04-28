@@ -1,1 +1,42 @@
-<div class="wrapper">Page "My wallet" is still under construction...</div>
+<div class="wrapper">
+  <div class="top-container">
+    <div class="title">My wallet</div>
+    <div>Current: {{currentSum + ' ' + currency}}</div>
+  </div>
+  <div class="bottom-container">
+    <div class="controls-container">
+      <button class="add-button">Add transfer</button>
+    </div>
+    <div class="table-container">
+      <table>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Tags</th>
+          <th>Count</th>
+          <th>Data and Time</th>
+          <th>Controls</th>
+        </tr>
+        <tr *ngFor="let transfer of transfers">
+          <td class="type-column">
+            <div class="type-column-container">
+              <img *ngIf="transfer.transferType == TransferType.INCOME" class="icon-arrow" src="assets/up.png" alt="">
+              <img *ngIf="transfer.transferType == TransferType.SPENT" class="icon-arrow" src="assets/down.png" alt="">
+            </div>
+          </td>
+          <td class="title-column">{{transfer.title}}</td>
+          <td class="tag-column">--</td>
+          <td class="count-column"><span class="count-container">{{transfer.count + ' ' + currency}}</span></td>
+          <td class="date-column">{{setDateAndTime(transfer.dateTime!)}}</td>
+          <td class="controls-column">
+            <div class="button-control-container">
+              <img class="icon icon-eye" src="assets/eye.png" alt="">
+              <img class="icon icon-edit" src="assets/edit.png" alt="">
+              <img class="icon icon-garbage" src="assets/garbage.png" alt="">
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
