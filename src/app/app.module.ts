@@ -10,6 +10,11 @@ import { TransfersComponent } from './transfer-builder/transfers/transfers.compo
 import { GroupsComponent } from './group-builder/groups/groups.component';
 import { StatisticsComponent } from './statistic-builder/statistics/statistics.component';
 import { HttpClientModule } from "@angular/common/http";
+import { PopupComponent } from './popup/popup.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { ReactiveFormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -19,15 +24,21 @@ import { HttpClientModule } from "@angular/common/http";
     NavbarComponent,
     TransfersComponent,
     GroupsComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PopupComponent]
 })
 export class AppModule {
 }
