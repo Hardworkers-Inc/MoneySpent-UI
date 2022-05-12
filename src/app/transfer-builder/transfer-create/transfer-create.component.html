@@ -1,0 +1,69 @@
+<div class="wrapper">
+  <div class="top-container">
+    <div class="title">Add transfer</div>
+    <div>Current: {{currentSum + ' ' + currency}}</div>
+  </div>
+  <div class="bottom-container">
+    <div class="controls-container">
+      <button class="control-button" routerLink="/my-wallet">Cancel</button>
+      <button class="control-button">Save</button>
+    </div>
+    <form [formGroup]="transferForm" novalidate>
+      <div class="data-form">
+        <div class="data-row">
+          <label class="data-label">
+            Title
+            <!--            <span class="required-name"> *</span>-->
+          </label>
+          <input class="data-enter data-input" name="title"
+                 formControlName="title" placeholder="Title" required>
+        </div>
+        <div class="data-row">
+          <label class="data-label">
+            Description
+          </label>
+          <textarea class="data-enter description" name="description"
+                    formControlName="description" placeholder="Description" required></textarea>
+        </div>
+      </div>
+      <div class="data-row">
+        <label class="data-label">
+          Type
+        </label>
+        <mat-button-toggle-group name="toggleButton" formControlName="transferType">
+          <mat-button-toggle class="data-enter button-toggle" name="INCOME"
+                             [value]="TransferType.INCOME" (click)="clickFirstButton()"
+                             [ngClass]="firstButtonPress? 'clicked': ''">
+            <span class="name-toggle">{{refactor(TransferType.INCOME)}}</span>
+          </mat-button-toggle>
+          <mat-button-toggle class="data-enter button-toggle" name="SPENT"
+                             [value]="TransferType.SPENT" (click)="clickSecondButton()"
+                             [ngClass]="secondButtonPress? 'clicked': ''">
+            <span class="name-toggle">{{refactor(TransferType.SPENT)}}</span>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div class="data-row">
+        <label class="data-label">
+          Tags
+        </label>
+        <select class="data-enter dropdown" name="tags" id="cars" disabled>
+        </select>
+      </div>
+      <div class="data-row">
+        <label class="data-label">
+          Date / time
+        </label>
+        <input class="data-enter data-input-date" type="datetime-local" name="datetime" id="datetime" formControlName="time">
+      </div>
+      <div class="data-row">
+        <label class="data-label">
+         Count
+        </label>
+        <input class="data-enter data-input-count" name="count" pattern="[-+\d\.]"
+               formControlName="count" placeholder="0000.00" required>
+        <span class="text">{{currency}}</span>
+      </div>
+    </form>
+  </div>
+</div>

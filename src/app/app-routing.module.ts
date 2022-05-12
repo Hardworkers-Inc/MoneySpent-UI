@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { TransfersComponent } from "./transfer-builder/transfers/transfers.component";
 import { GroupsComponent } from "./group-builder/groups/groups.component";
 import { StatisticsComponent } from "./statistic-builder/statistics/statistics.component";
+import { TransferCreateComponent } from "./transfer-builder/transfer-create/transfer-create.component";
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'my-wallet',
     component: TransfersComponent,
+  },
+  {
+    path: 'my-wallet/create',
+    component: TransferCreateComponent
   },
   {
     path: 'my-groups',
