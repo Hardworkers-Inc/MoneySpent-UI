@@ -5,7 +5,7 @@
   </div>
   <div class="bottom-container">
     <div class="controls-container">
-      <button class="add-button">Add transfer</button>
+      <button class="add-button" routerLink="/my-wallet/create">Add transfer</button>
     </div>
     <div class="table-container">
       <table>
@@ -32,7 +32,7 @@
             <div class="button-control-container">
               <img class="icon icon-eye" src="assets/eye.png" alt="">
               <img class="icon icon-edit" src="assets/edit.png" alt="">
-              <img class="icon icon-garbage" src="assets/garbage.png" alt="">
+              <img class="icon icon-garbage" src="assets/garbage.png" alt="" (click)="openDialog(transfer.id)">
             </div>
           </td>
         </tr>

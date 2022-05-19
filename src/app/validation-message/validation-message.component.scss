@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  height: 20px;
+  margin-left: 145px;
+  padding-top: 3px;
+
+  color: #ff9d9d;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.container mat-icon {
+  transform: scale(0.9);
+}
