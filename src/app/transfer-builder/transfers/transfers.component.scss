@@ -24,7 +24,7 @@
 }
 
 .bottom-container {
-  height: 100%;
+  padding-bottom: 25px;
   width: 100%;
   background: $dark-table-color;
   border-radius: 0 0 30px 30px;
@@ -121,7 +121,8 @@ td {
 }
 
 .title-column {
-  width: 30%
+  width: 30%;
+  font-family: $font-monospace;
 }
 
 .tag-column {
@@ -131,6 +132,7 @@ td {
 .count-column {
   width: 150px;
   text-align: right;
+  font-family: $font-monospace;
 }
 
 .count-container {
@@ -139,6 +141,7 @@ td {
 
 .date-column {
   width: 180px;
+  font-family: $font-monospace;
 }
 
 .controls-column {

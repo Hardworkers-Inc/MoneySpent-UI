@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=K2D:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
 
 $font: "K2D", sans-serif;
+$font-monospace: 'Inconsolata', monospace;
 
 body, html {
   padding: 0;
@@ -9,6 +11,7 @@ body, html {
 }
 
 $dark-light-color: antiquewhite;
+$dark-light-color-placeholder: rgba(250, 235, 215, 0.59);
 $dark-light-pictures: invert(88%) sepia(9%) saturate(382%) hue-rotate(355deg) brightness(102%) contrast(102%);
 $dark-dark-color: black;
 $dark-navbar-color: #464646;
@@ -16,6 +19,9 @@ $dark-table-color: #5C5C5C;
 $dark-main-color: #2F2F2F;
 $dark-input-color: #C4C4C4;
 $dark-input-opacity-40-color: #C4C4C440;
+$dark-input-invalid-color: rgb(222, 86, 86);
+$dark-input-opacity-40-invalid-color: rgba(222, 86, 86, 0.4);
+$dark-button-disabled-color: #b0afa1;
 
 mat-dialog-container {
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -24,4 +30,6 @@ mat-dialog-container {
   width: 400px !important;
   border-radius: 20px !important;
 }
+
+
 

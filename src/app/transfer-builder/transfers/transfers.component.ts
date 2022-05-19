@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Transfer } from "../../models/transfer";
-import { TransferType } from "../../models/transferType";
-import { TransferService } from "../../services/transfer.service";
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { PopupComponent } from "../../popup/popup.component";
+import {Component, OnInit} from '@angular/core';
+import {Transfer} from "../../models/transfer";
+import {TransferType} from "../../models/transferType";
+import {TransferService} from "../../services/transfer.service";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {PopupComponent} from "../../popup/popup.component";
 
 @Component({
   selector: 'app-transfers',
@@ -34,10 +34,12 @@ export class TransfersComponent implements OnInit {
       })
   }
 
-  setDateAndTime(dateAndTime: string): string {
-    let dateAndTimeArray = dateAndTime?.split("T")
-    let date = dateAndTimeArray[0].split("-")
-    return date[2] + '.' + date[1] + '.' + date[0] + ' ' + dateAndTimeArray[1].substr(0, 5)
+  setDateAndTime(dateAndTime: any): string {
+    let date: string[] = [];
+    for (let i = 0; i < 5; i++) {
+      date.push((dateAndTime[i] < 10 ? '0' : '') + dateAndTime[i])
+    }
+    return date[0] + '.' + date[2] + '.' + date[1] + ' ' + date[3] + ':' + date[4]
   }
 
   openDialog(idTransfer: any) {

@@ -6,63 +6,92 @@
   <div class="bottom-container">
     <div class="controls-container">
       <button class="control-button" routerLink="/my-wallet">Cancel</button>
-      <button class="control-button">Save</button>
+      <button class="control-button" (click)="onClickSave()" [disabled]="transferForm?.invalid">Save</button>
     </div>
     <form [formGroup]="transferForm" novalidate>
       <div class="data-form">
+        <div class="input-control">
+          <div class="data-row">
+            <label class="data-label">
+              Title
+            </label>
+            <input class="data-enter data-input" name="title"
+                   [ngClass]="getErroredFieldClass(title)"
+                   formControlName="title" placeholder="Title" required>
+          </div>
+          <app-validation-message [condition]="title.touched && title.hasError('whitespace')">
+            The field 'Title' is required.
+          </app-validation-message>
+          <app-validation-message [condition]="title.touched && title.hasError('maxlength')">
+            The field 'Title' must be 50 maximum length.
+          </app-validation-message>
+        </div>
+        <div class="input-control">
+          <div class="data-row">
+            <label class="data-label">
+              Description
+            </label>
+            <textarea class="data-enter description" name="description"
+                      [ngClass]="getErroredFieldClass(description)"
+                      formControlName="description" placeholder="Description"></textarea>
+          </div>
+          <app-validation-message [condition]="description.touched && description.hasError('maxlength')">
+            The field 'Description' must be 300 maximum length.
+          </app-validation-message>
+        </div>
+      </div>
+      <div class="input-control">
         <div class="data-row">
           <label class="data-label">
-            Title
-            <!--            <span class="required-name"> *</span>-->
+            Type
           </label>
-          <input class="data-enter data-input" name="title"
-                 formControlName="title" placeholder="Title" required>
+          <mat-button-toggle-group name="toggleButton" formControlName="transferType">
+            <mat-button-toggle class="data-enter button-toggle" name="INCOME"
+                               [value]="TransferType.INCOME" (click)="clickFirstButton()"
+                               [ngClass]="firstButtonPress? 'clicked': ''">
+              <span class="name-toggle">{{refactor(TransferType.INCOME)}}</span>
+            </mat-button-toggle>
+            <mat-button-toggle class="data-enter button-toggle" name="SPENT"
+                               [value]="TransferType.SPENT" (click)="clickSecondButton()"
+                               [ngClass]="secondButtonPress? 'clicked': ''">
+              <span class="name-toggle">{{refactor(TransferType.SPENT)}}</span>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
         </div>
+      </div>
+      <div class="input-control">
         <div class="data-row">
           <label class="data-label">
-            Description
+            Tags
           </label>
-          <textarea class="data-enter description" name="description"
-                    formControlName="description" placeholder="Description" required></textarea>
+          <select class="data-enter dropdown" name="tags" id="cars" disabled>
+          </select>
         </div>
       </div>
-      <div class="data-row">
-        <label class="data-label">
-          Type
-        </label>
-        <mat-button-toggle-group name="toggleButton" formControlName="transferType">
-          <mat-button-toggle class="data-enter button-toggle" name="INCOME"
-                             [value]="TransferType.INCOME" (click)="clickFirstButton()"
-                             [ngClass]="firstButtonPress? 'clicked': ''">
-            <span class="name-toggle">{{refactor(TransferType.INCOME)}}</span>
-          </mat-button-toggle>
-          <mat-button-toggle class="data-enter button-toggle" name="SPENT"
-                             [value]="TransferType.SPENT" (click)="clickSecondButton()"
-                             [ngClass]="secondButtonPress? 'clicked': ''">
-            <span class="name-toggle">{{refactor(TransferType.SPENT)}}</span>
-          </mat-button-toggle>
-        </mat-button-toggle-group>
+      <div class="input-control">
+        <div class="data-row">
+          <label class="data-label">
+            Date / time
+          </label>
+          <input class="data-enter data-input-date" type="datetime-local" name="datetime" id="datetime"
+                 [ngClass]="getErroredFieldClass(dateTime)"
+                 formControlName="time">
+          <div class="now-button control-button" (click)="onNowClick()">Now</div>
+        </div>
       </div>
-      <div class="data-row">
-        <label class="data-label">
-          Tags
-        </label>
-        <select class="data-enter dropdown" name="tags" id="cars" disabled>
-        </select>
-      </div>
-      <div class="data-row">
-        <label class="data-label">
-          Date / time
-        </label>
-        <input class="data-enter data-input-date" type="datetime-local" name="datetime" id="datetime" formControlName="time">
-      </div>
-      <div class="data-row">
-        <label class="data-label">
-         Count
-        </label>
-        <input class="data-enter data-input-count" name="count" pattern="[-+\d\.]"
-               formControlName="count" placeholder="0000.00" required>
-        <span class="text">{{currency}}</span>
+      <div class="input-control">
+        <div class="data-row">
+          <label class="data-label">
+            Count
+          </label>
+          <input class="data-enter data-input-count" name="count"
+                 [ngClass]="getErroredFieldClass(count)"
+                 formControlName="count" placeholder="0000.00" required>
+          <span class="text">{{currency}}</span>
+        </div>
+        <app-validation-message [condition]="count.touched && title.hasError('whitespace')">
+          The field 'Count' is required.
+        </app-validation-message>
       </div>
     </form>
   </div>

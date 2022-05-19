@@ -47,6 +47,16 @@
   cursor: pointer
 }
 
+.control-button:disabled {
+  background: $dark-button-disabled-color;
+  cursor: not-allowed;
+}
+
+.control-button:disabled:hover {
+  background: $dark-button-disabled-color;
+  color: $dark-light-color;
+}
+
 form {
   font-size: 19px;
   font-weight: bold;
@@ -61,10 +71,15 @@ form {
   color: #e65800;
 }
 
+.input-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
 .data-row {
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
 }
 
 .data-label {
@@ -85,16 +100,22 @@ form {
   padding: 5px;
 }
 
-.data-enter:focus{
+.data-enter:focus {
   outline: none;
 }
+
 ::placeholder {
-  color: $dark-light-color;
+  font-weight: normal;
+  color: $dark-light-color-placeholder;
 }
 
 .data-input {
   height: 30px;
   width: 500px;
+}
+
+.data-input-invalid {
+  border: 2px solid $dark-input-invalid-color;
 }
 
 .description {
@@ -129,7 +150,7 @@ form {
   padding-right: 20px;
 }
 
-.data-input-date{
+.data-input-date {
   height: 30px;
   width: 378px;
 }
@@ -142,4 +163,10 @@ form {
   margin-left: 10px;
 }
 
-
+.now-button {
+  height: 40px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
